@@ -5,22 +5,22 @@
 #include <SDL.h>
 
 std::vector<Point3D> points{
-    Point3D{ 0, 1, 0 },    // Top point
-    Point3D{ -1, -1, 1 },  // Front left bottom
-    Point3D{ 1, -1, 1 },   // Front right bottom
-    Point3D{ 1, -1, -1 },  // Back right bottom
-    Point3D{ -1, -1, -1 }  // Back left bottom
+    Point3D{ 0, 1, 0 },    
+    Point3D{ -1, -1, 1 },  
+    Point3D{ 1, -1, 1 },   
+    Point3D{ 1, -1, -1 }, 
+    Point3D{ -1, -1, -1 }  
 };
 
 std::vector<Edge> edges{
-    Edge{ 0, 1 },  // Top to front left
-    Edge{ 0, 2 },  // Top to front right
-    Edge{ 0, 3 },  // Top to back right
-    Edge{ 0, 4 },  // Top to back left
-    Edge{ 1, 2 },  // Front left to front right
-    Edge{ 2, 3 },  // Front right to back right
-    Edge{ 3, 4 },  // Back right to back left
-    Edge{ 4, 1 }   // Back left to front left
+    Edge{ 0, 1 },  
+    Edge{ 0, 2 },  
+    Edge{ 0, 3 },  
+    Edge{ 0, 4 },  
+    Edge{ 1, 2 },  
+    Edge{ 2, 3 },  
+    Edge{ 3, 4 }, 
+    Edge{ 4, 1 }   
 };
 
 int main(int argc, char* argv[])
