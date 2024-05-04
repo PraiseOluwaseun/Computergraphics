@@ -5,22 +5,22 @@
 #include <SDL.h>
 
 std::vector<Point3D> points{
-    Point3D{ 0, 1, 0 },   
-    Point3D{ -1, -1, 1 },  
-    Point3D{ 1, -1, 1 },  
-    Point3D{ 1, -1, -1 },  
-    Point3D{ -1, -1, -1 }  
+    Point3D{ 0, 1, 0 },
+    Point3D{ -1, -1, 1 },
+    Point3D{ 1, -1, 1 },
+    Point3D{ 1, -1, -1 },
+    Point3D{ -1, -1, -1 }
 };
 
 std::vector<Edge> edges{
-    Edge{ 0, 1 }, 
-    Edge{ 0, 2 },  
-    Edge{ 0, 3 },  
-    Edge{ 0, 4 },  
-    Edge{ 1, 2 },  
-    Edge{ 2, 3 },  
-    Edge{ 3, 4 },  
-    Edge{ 4, 1 }  
+    Edge{ 0, 1 },
+    Edge{ 0, 2 },
+    Edge{ 0, 3 },
+    Edge{ 0, 4 },
+    Edge{ 1, 2 },
+    Edge{ 2, 3 },
+    Edge{ 3, 4 },
+    Edge{ 4, 1 }
 };
 
 int main(int argc, char* argv[])
@@ -36,23 +36,20 @@ int main(int argc, char* argv[])
     Renderer3D render3D(window, renderer, points, edges);
 
     double scale = 1.0;
-    double scaleStep = 0.01; // Adjust speed of animation by changing the step
+    double scaleStep = 0.01;
 
     while (running)
     {
         if (SDL_QuitRequested()) { running = false; break; }
 
-        // Scale out
         scale += scaleStep;
         if (scale > 1.5) {
-            scaleStep = -0.01; // Reverse direction when reaching maximum scale
+            scaleStep = -0.01;
         }
-        // Scale in
         if (scale < 0.5) {
-            scaleStep = 0.01; // Reverse direction when reaching minimum scale
+            scaleStep = 0.01;
         }
 
-        // Apply scale to each point
         std::vector<Point3D> scaledPoints = points;
         for (auto& point : scaledPoints) {
             point.x *= scale;
@@ -60,7 +57,6 @@ int main(int argc, char* argv[])
             point.z *= scale;
         }
 
-        // Render with scaled points
         render3D.setPoints(scaledPoints);
         render3D.render();
     }
